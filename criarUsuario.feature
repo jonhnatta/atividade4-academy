@@ -10,9 +10,8 @@ Feature: Criar Usuário
     And path "/users"
     When method post
     Then status 201
-    * def resp = response
-    And match response contains {id: "#(resp.id)",name: "#(resp.name)", email:"#(resp.email)", updatedAt: "#(resp.updatedAt)", createdAt:"#(resp.createdAt)"}
+    * def res = response
+    And match response contains {id: "#(res.id)",name: "#(res.name)", email:"#(res.email)", updatedAt: "#(res.updatedAt)", createdAt:"#(res.createdAt)"}
 
-    Given url baseUrl
-    And path "/users", resp.id
+    Given path "/users", res.id
     When method delete

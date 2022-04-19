@@ -1,6 +1,6 @@
 function setup() {
-  
-  var config = {
+
+  let config = {
     baseUrl: "https://crud-api-academy.herokuapp.com/api/v1"
   }
 
