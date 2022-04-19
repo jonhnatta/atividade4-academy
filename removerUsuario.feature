@@ -6,7 +6,7 @@ Feature: Remover usuário
   Background: Base Url
     Given url baseUrl
 
-  Scenario: Encontrar usuário por Id
+  Scenario: Remover um usuário
     # Cria um usuário para remover
     * def payload = read("usuarioPrincipal.json")
     And request payload
@@ -18,3 +18,9 @@ Feature: Remover usuário
     Given path "/users", res.id
     When method delete
     Then status 204
+
+  Scenario: Remover um usuário com id inválido
+    * def id = "12354665546456546"
+    Given path "/users", id
+    When method delete
+    Then status 400
